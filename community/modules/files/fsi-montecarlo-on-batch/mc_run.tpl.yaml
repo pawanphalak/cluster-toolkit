@@ -28,8 +28,12 @@ task_count: 8 #optional
 parallelism: 4 #optional
 task_count_per_node: 2 #optional
 cpu_milli: 1000 #optional
-memory_mib: 102400 #optional
+memory_mib: 4096 #optional
 
+
+no_external_ip_address: true
+network: "${network_name}"
+subnetwork: "${subnetwork_name}"
 
 labels:
   env: "monte"

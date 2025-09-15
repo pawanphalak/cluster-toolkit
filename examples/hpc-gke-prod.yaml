@@ -31,15 +31,15 @@ deployment_groups:
     settings:
       subnetworks:
         - subnet_name: $(vars.deployment_name)-subnet
-          subnet_ip: 10.1.0.0/24
+          subnet_ip: 10.4.0.0/24
           subnet_region: $(vars.region)
       secondary_ranges_list:
       - subnetwork_name: $(vars.deployment_name)-subnet
         ranges:
         - range_name: pods
-          ip_cidr_range: 10.2.0.0/16
+          ip_cidr_range: 10.5.0.0/16
         - range_name: services
-          ip_cidr_range: 10.3.32.0/20
+          ip_cidr_range: 10.6.32.0/20
 
   - id: node_pool_service_account
     source: community/modules/project/service-account

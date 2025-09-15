@@ -132,13 +132,13 @@ variable "cloud_dns_config" {
   EOT
   type = object({
     additive_vpc_scope_dns_domain = optional(string)
-    cluster_dns                   = optional(string, "PROVIDER_UNSPECIFIED")
+    cluster_dns                   = optional(string, "PLATFORM_DEFAULT")
     cluster_dns_scope             = optional(string, "DNS_SCOPE_UNSPECIFIED")
     cluster_dns_domain            = optional(string)
   })
   default = {
     additive_vpc_scope_dns_domain = null
-    cluster_dns                   = "PROVIDER_UNSPECIFIED"
+    cluster_dns                   = "PLATFORM_DEFAULT"
     cluster_dns_scope             = "DNS_SCOPE_UNSPECIFIED"
     cluster_dns_domain            = null
   }

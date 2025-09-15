@@ -26,11 +26,11 @@ resource "random_id" "resource_name_suffix" {
 data "template_file" "mc_run_py" {
   template = file("${path.module}/mc_run.tpl.py")
   vars = {
-    project_id   = var.project_id
-    topic_id     = var.topic_id
-    topic_schema = var.topic_schema
-    dataset_id   = var.dataset_id
-    table_id     = var.table_id
+    project_id      = var.project_id
+    topic_id        = var.topic_id
+    topic_schema    =  var.topic_schema
+    dataset_id      = var.dataset_id
+    table_id        = var.table_id
   }
 }
 
@@ -43,9 +43,11 @@ resource "google_storage_bucket_object" "mc_run" {
 data "template_file" "mc_run_yaml" {
   template = file("${path.module}/mc_run.tpl.yaml")
   vars = {
-    project_id  = var.project_id
-    bucket_name = local.bucket
-    region      = var.region
+    project_id      = var.project_id
+    bucket_name     = local.bucket
+    region          = var.region
+    subnetwork_name = var.subnetwork_name
+    network_name    = var.network_name
   }
 }
 

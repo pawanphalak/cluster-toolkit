@@ -64,7 +64,15 @@ resource "google_workbench_instance" "instance" {
     machine_type = var.machine_type
     metadata = {
       post-startup-script = "${var.gcs_bucket_path}/${google_storage_bucket_object.mount_script.name}"
+      # idle-timeout-seconds = "3600"
     }
+    shielded_instance_config {
+      enable_secure_boot = true
+      enable_vtpm = true
+      enable_integrity_monitoring = true
+    }
+
+    disable_public_ip = true
     vm_image {
       project = var.instance_image.project
       family  = var.instance_image.family

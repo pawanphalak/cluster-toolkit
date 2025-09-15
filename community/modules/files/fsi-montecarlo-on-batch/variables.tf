@@ -49,3 +49,13 @@ variable "region" {
   description = "Region to run project"
   type        = string
 }
+
+variable "subnetwork_name" {
+  description = "Subnet name to deploy the batch job"
+  type        = string
+}
+
+variable "network_name" {
+  description = "Network name to deploy the batch job"
+  type        = string
+}
